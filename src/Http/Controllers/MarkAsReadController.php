@@ -13,7 +13,6 @@ class MarkAsReadController
 		$markRead = $request
 			->user()
 			->unreadNotifications()
-            ->where('data.type', 'nova')
 			->find($notification)
 			->markAsRead();
 
@@ -21,7 +20,6 @@ class MarkAsReadController
 			'notification' => $request
 				->user()
 				->notifications()
-				->where('data.type', 'nova')
 				->find($notification),
 		]);
 	}

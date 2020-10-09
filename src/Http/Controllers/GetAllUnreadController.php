@@ -13,6 +13,7 @@ class GetAllUnreadController
 	{
 		$notifications = $request->user()
 			->unreadNotifications
+            ->where('data.type', 'nova')
 			->mapWithKeys(function(DatabaseNotification $notification) {
 				return [$notification->id => $notification];
 			});

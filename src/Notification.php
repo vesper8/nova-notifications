@@ -14,6 +14,8 @@ class Notification implements NotificationContract, Arrayable
 
     public function __construct($title = null, $subtitle = null)
     {
+        $this->type('nova');
+
         if (!empty($title)) {
             $this->title($title);
         }
@@ -138,6 +140,12 @@ class Notification implements NotificationContract, Arrayable
     public function showCancel(bool $value = true): Notification
     {
         $this->notification['show_cancel'] = $value;
+        return $this;
+    }
+
+    public function type(string $value): Notification
+    {
+        $this->notification['type'] = $value;
         return $this;
     }
 

@@ -14,6 +14,7 @@ class MarkAllAsReadController
 			'status' => $request
 				->user()
 				->unreadNotifications
+				->where('data.type', 'nova')
 				->markAsRead(),
 		]);
 	}
